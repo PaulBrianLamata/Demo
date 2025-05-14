@@ -16,6 +16,15 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    rm -rf node_modules package-lock.json
+    echo "🔄 Cleaned node_modules and lock file"
+  displayName: 'Clean node_modules'
+
+- script: |
     npm install
+    echo "✅ Dependencies installed"
+  displayName: 'Install Dependencies'
+
+- script: |
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'Run Build Script'
