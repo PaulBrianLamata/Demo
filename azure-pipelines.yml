@@ -20,5 +20,7 @@ steps:
     npm uninstall webpack
     rm -rf node_modules package-lock.json
     npm install --save-dev css-loader@6
+    npm uninstall html-webpack-plugin
+    npm install --save-dev html-webpack-plugin@5
     npm run build
   displayName: 'npm install and build'
