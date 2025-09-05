@@ -17,5 +17,7 @@ steps:
 
 - script: |
     npm install
-    npm run build
+    npm uninstall webpack
+    rm -rf node_modules package-lock.json
+    npm run build 
   displayName: 'npm install and build'
