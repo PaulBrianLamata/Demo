@@ -1,19 +1,23 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module"
+  },
   extends: [
-    'eslint:recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:flowtype/recommended'
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
-  plugins: ['react', 'flowtype'],
+  plugins: ["react", "import"],
   env: {
     es6: true,
-    'shared-node-browser': true
+    "shared-node-browser": true
   },
   settings: {
-    'import/resolver': {
-      'babel-module': {}
+    react: { version: "detect" },
+    "import/resolver": {
+      node: true
     }
   },
   globals: {
@@ -21,42 +25,40 @@ module.exports = {
     process: true
   },
   rules: {
-    'no-console': 'off',
-    'flowtype/generic-spacing': 'off'
+    "no-console": "off"
   },
   overrides: [
     {
       files: [
-        '.eslintrc.js',
-        'babel.config.js',
-        'jest.config.js',
-        'jest.framework-setup.js',
-        'web/next.config.js',
-        'server/**/*.js'
+        ".eslintrc.js",
+        "jest.config.js",
+        "jest.framework-setup.js",
+        "web/next.config.js",
+        "server/**/*.js"
       ],
       env: {
         node: true
       }
     },
     {
-      files: ['**/*.test.js'],
+      files: ["**/*.test.js"],
       env: {
         jest: true
       }
     },
     {
       files: [
-        'web/components/**/*.js',
-        'web/pages/**/*.js',
-        'web/mocks/**/*.js'
+        "web/components/**/*.js",
+        "web/pages/**/*.js",
+        "web/mocks/**/*.js"
       ],
       rules: {
-        'react/jsx-uses-react': 'error',
-        'react/jsx-uses-vars': 'error'
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
       }
     },
     {
-      files: ['**/__fixtures__/**/*.js']
+      files: ["**/__fixtures__/**/*.js"]
     }
   ]
 };
