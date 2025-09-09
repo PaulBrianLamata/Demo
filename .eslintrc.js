@@ -3,19 +3,21 @@ module.exports = {
   parserOptions: {
     requireConfigFile: false,
     babelOptions: {
-      presets: ["@babel/preset-react"]
-    }
+      presets: ["@babel/preset-env", "@babel/preset-react"],
+    },
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
   plugins: ["react"],
-  env: {
-    es6: true,
-    node: true,
-    browser: true,
-    jest: true
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "next", // ✅ adds Next.js rules
+  ],
+  settings: {
+    react: {
+      version: "detect", // ✅ fixes React version warning
+    },
   },
   rules: {
     "no-console": "off",
-    "react/prop-types": "off"
-  }
+  },
 };
