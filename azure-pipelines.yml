@@ -24,3 +24,7 @@ steps:
     npm install --save-dev html-webpack-plugin@5
     npm run build
   displayName: 'npm install and build'
+- script: |
+    export NODE_OPTIONS=--openssl-legacy-provider
+    npm run build
+  displayName: Build with legacy OpenSSL provider
