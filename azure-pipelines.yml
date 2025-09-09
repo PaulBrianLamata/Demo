@@ -22,6 +22,7 @@ steps:
     npm install --save-dev css-loader@6
     npm uninstall html-webpack-plugin
     npm install --save-dev html-webpack-plugin@5
+    npm uninstall flow-bin flow-typed @babel/preset-flow eslint-plugin-flowtype
     npm run build
   displayName: 'npm install and build'
 - script: |
