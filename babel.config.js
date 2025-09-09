@@ -6,8 +6,8 @@ const alias = {
 
 module.exports = {
   presets: [
-    ['next/babel', { 'preset-env': { modules: 'commonjs' } }],
-    '@babel/preset-flow'
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
   plugins: [['module-resolver', { alias }]]
 };
