@@ -1,10 +1,19 @@
 module.exports = {
   parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false, // don’t need a separate .babelrc
+    babelOptions: {
+      presets: [
+        '@babel/preset-react' // ✅ make sure this is installed
+        // add '@babel/preset-typescript' later if you migrate to TS
+      ],
+    },
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:import/recommended',
-    'next' // Enables Next.js recommended rules
+    'next'
   ],
   plugins: ['react'],
   env: {
@@ -19,16 +28,16 @@ module.exports = {
     },
   },
   rules: {
-    // ✅ Disable rules causing noise after removing Flow
+    // disable noisy rules
     'react/prop-types': 'off',
     'import/no-anonymous-default-export': 'off',
     'no-unused-vars': 'warn',
     'no-console': 'off',
 
-    // ✅ If you don’t want to enforce semicolons
-    'semi': ['error', 'never'], // or "always" if you prefer semicolons
+    // semicolon style – pick one
+    'semi': ['error', 'never'], // or "always"
 
-    // ✅ Optional: sometimes `import/no-unresolved` is too strict
+    // sometimes import resolver is too strict
     'import/no-unresolved': 'off',
   },
 }
